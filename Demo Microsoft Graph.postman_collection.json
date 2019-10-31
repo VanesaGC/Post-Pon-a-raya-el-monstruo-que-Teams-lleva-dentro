@@ -321,18 +321,18 @@
 		{
 			"id": "5f244f85-3619-40ad-b7c6-76559dd903a7",
 			"name": "Obtener token",
-			"url": "https://login.microsoftonline.com/f5b58c9f-2d9a-4ea5-92c3-6768a6413ae7/oauth2/token",
+			"url": "https://login.microsoftonline.com/tenant/oauth2/token",
 			"description": null,
 			"data": [
 				{
 					"key": "client_id",
-					"value": "aaa5f5b9-c9ea-48e1-ae92-759c6d86a633",
+					"value": "client id",
 					"type": "text",
 					"enabled": true
 				},
 				{
 					"key": "client_secret",
-					"value": "AzD5CLew6?q=Zt_2jc2g-=Sdt0Wyrv5[",
+					"value": "client secret",
 					"type": "text",
 					"enabled": true
 				},
