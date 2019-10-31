@@ -1,0 +1,688 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Demo Microsoft Graph",
+    "description": "Demo Microsoft Graph"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1.0/groups": {
+      "get": {
+        "summary": "Obtener grupos",
+        "description": "Obtener grupos",
+        "operationId": "ObtenerGrupos",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear grupo",
+        "description": "Crear grupo",
+        "operationId": "CrearGrupo",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": " application/json",
+            "description": "Content-Type"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "type": "string",
+                  "description": "displayName"
+                },
+                "mailNickname": {
+                  "type": "string",
+                  "description": "mailNickname"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "visibility": {
+                  "type": "string",
+                  "description": "visibility"
+                },
+                "groupTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "groupTypes"
+                },
+                "mailEnabled": {
+                  "type": "boolean",
+                  "description": "mailEnabled"
+                },
+                "securityEnabled": {
+                  "type": "boolean",
+                  "description": "securityEnabled"
+                },
+                "members@odata.bind": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "members@odata.bind"
+                },
+                "owners@odata.bind": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "owners@odata.bind"
+                }
+              },
+              "default": {
+                "displayName": "Flight 157",
+                "mailNickname": "flight157",
+                "description": "Everything about flight 157",
+                "visibility": "Private",
+                "groupTypes": [
+                  "Unified"
+                ],
+                "mailEnabled": true,
+                "securityEnabled": false,
+                "members@odata.bind": [
+                  "https://graph.microsoft.com/v1.0/users/91b3c19e-eec6-4056-98f1-be5a85ba7659",
+                  "https://graph.microsoft.com/v1.0/users/3ba7e167-7c09-484a-846d-b913084f1b56"
+                ],
+                "owners@odata.bind": [
+                  "https://graph.microsoft.com/v1.0/users/3ba7e167-7c09-484a-846d-b913084f1b56"
+                ]
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/beta/teams": {
+      "post": {
+        "summary": "Crear equipo sin grupo",
+        "description": "Crear equipo sin grupo",
+        "operationId": "CrearEquipoSinGrupo",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": " application/json",
+            "description": "Content-Type"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "template@odata.bind": {
+                  "type": "string",
+                  "description": "template@odata.bind"
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "displayName"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "owners@odata.bind": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "owners@odata.bind"
+                }
+              },
+              "default": {
+                "template@odata.bind": "https://graph.microsoft.com/beta/teamsTemplates('standard')",
+                "displayName": "My Sample Team",
+                "description": "My Sample Team’s Description",
+                "owners@odata.bind": [
+                  "https://graph.microsoft.com/beta/users('3ba7e167-7c09-484a-846d-b913084f1b56')"
+                ]
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/teams/1acba587-4d91-495a-a860-bb37f80d692e/channels": {},
+    "/v1.0/users": {
+      "get": {
+        "summary": "Obtener usuarios",
+        "description": "Obtener usuarios",
+        "operationId": "ObtenerUsuarios",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/groups/c3ad0721-a58a-4da3-8b52-2c16b9d8d702/team": {},
+    "/v1.0/teams/1acba587-4d91-495a-a860-bb37f80d692e/channels/19:28a6d999801946918843b7048dff6989@thread.skype/tabs": {},
+    "/edu/users/3ba7e167-7c09-484a-846d-b913084f1b56/memberOf/$/microsoft.graph.group": {},
+    "/beta/teams/1acba587-4d91-495a-a860-bb37f80d692e/channels": {},
+    "/f5b58c9f-2d9a-4ea5-92c3-6768a6413ae7/oauth2/token": {
+      "post": {
+        "summary": "Obtener token",
+        "description": "Obtener token",
+        "operationId": "ObtenerToken",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": " application/x-www-form-urlencoded",
+            "description": "Content-Type"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string",
+                    "description": "key"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "value"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "type"
+                  },
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "enabled"
+                  }
+                },
+                "default": {
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "description": "",
+                  "type": "text",
+                  "enabled": true
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/groups/c3ad0721-a58a-4da3-8b52-2c16b9d8d702/members": {},
+    "/v1.0/teams/1acba587-4d91-495a-a860-bb37f80d692e/channels/19:7f9567da4bc3470b8ec1141b0400e8dd@thread.skype/tabs": {},
+    "/v1.0/groups/1acba587-4d91-495a-a860-bb37f80d692e/team": {},
+    "/v1.0/teams/1acba587-4d91-495a-a860-bb37f80d692e/installedApps": {},
+    "/v1.0/groups/1acba587-4d91-495a-a860-bb37f80d692e/team/channels": {},
+    "/v1.0/teams/{TeamId}/channels": {
+      "get": {
+        "summary": "Obtener canales de un equipo 2",
+        "description": "Obtener canales de un equipo 2",
+        "operationId": "ObtenerCanalesDeUnEquipo2",
+        "parameters": [
+          {
+            "name": "TeamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/groups/{GroupId}/team": {
+      "get": {
+        "summary": "Obtener equipo con id",
+        "description": "Obtener equipo con id",
+        "operationId": "ObtenerEquipoConId",
+        "parameters": [
+          {
+            "name": "GroupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Crear equipo a partir de un grupo",
+        "description": "Crear equipo a partir de un grupo",
+        "operationId": "CrearEquipoAPartirDeUnGrupo",
+        "parameters": [
+          {
+            "name": "GroupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "memberSettings": {
+                  "type": "object",
+                  "properties": {
+                    "allowCreateUpdateChannels": {
+                      "type": "boolean",
+                      "description": "allowCreateUpdateChannels"
+                    }
+                  },
+                  "description": "memberSettings"
+                },
+                "messagingSettings": {
+                  "type": "object",
+                  "properties": {
+                    "allowUserEditMessages": {
+                      "type": "boolean",
+                      "description": "allowUserEditMessages"
+                    },
+                    "allowUserDeleteMessages": {
+                      "type": "boolean",
+                      "description": "allowUserDeleteMessages"
+                    }
+                  },
+                  "description": "messagingSettings"
+                },
+                "funSettings": {
+                  "type": "object",
+                  "properties": {
+                    "allowGiphy": {
+                      "type": "boolean",
+                      "description": "allowGiphy"
+                    },
+                    "giphyContentRating": {
+                      "type": "string",
+                      "description": "giphyContentRating"
+                    }
+                  },
+                  "description": "funSettings"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/teams/{TeamId}/channels/{ChannelId}/tabs": {
+      "get": {
+        "summary": "Listar pestañas de un canal",
+        "description": "Listar pestañas de un canal",
+        "operationId": "ListarPestanasDeUnCanal",
+        "parameters": [
+          {
+            "name": "TeamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ChannelId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear tab url",
+        "description": "Crear tab url",
+        "operationId": "CrearTabUrl",
+        "parameters": [
+          {
+            "name": "TeamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ChannelId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "type": "string",
+                  "description": "displayName"
+                },
+                "teamsApp@odata.bind": {
+                  "type": "string",
+                  "description": "teamsApp@odata.bind"
+                },
+                "configuration": {
+                  "type": "object",
+                  "properties": {
+                    "entityId": {
+                      "type": "string",
+                      "description": "entityId"
+                    },
+                    "contentUrl": {
+                      "type": "string",
+                      "description": "contentUrl"
+                    },
+                    "removeUrl": {
+                      "type": "string",
+                      "description": "removeUrl"
+                    },
+                    "websiteUrl": {
+                      "type": "string",
+                      "description": "websiteUrl"
+                    }
+                  },
+                  "description": "configuration"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/edu/users/{UserId}/memberOf/$/microsoft.graph.group": {
+      "get": {
+        "summary": "Obtener grupos al que pertenece un usuario",
+        "description": "Obtener grupos al que pertenece un usuario",
+        "operationId": "ObtenerGruposAlQuePerteneceUnUsuario",
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/beta/teams/{TeamId}/channels": {
+      "post": {
+        "summary": "Crear canal en un equipo",
+        "description": "Crear canal en un equipo",
+        "operationId": "CrearCanalEnUnEquipo",
+        "parameters": [
+          {
+            "name": "TeamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "type": "string",
+                  "description": "displayName"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "membershipType": {
+                  "type": "string",
+                  "description": "membershipType"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/groups/{GroupId}/members": {
+      "get": {
+        "summary": "Obtener miembros de un grupo",
+        "description": "Obtener miembros de un grupo",
+        "operationId": "ObtenerMiembrosDeUnGrupo",
+        "parameters": [
+          {
+            "name": "GroupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/teams/{TeamId}/installedApps": {
+      "get": {
+        "summary": "Obtener aplicaciones instaladas en equipo seleccionado",
+        "description": "Obtener aplicaciones instaladas en equipo seleccionado",
+        "operationId": "ObtenerAplicacionesInstaladasEnEquipoSeleccionado",
+        "parameters": [
+          {
+            "name": "TeamId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/groups/{GroupId}/team/channels": {
+      "get": {
+        "summary": "Obtener canales de un equipo",
+        "description": "Obtener canales de un equipo",
+        "operationId": "ObtenerCanalesDeUnEquipo",
+        "parameters": [
+          {
+            "name": "GroupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/v1.0/groups/{GroupId}/members/$ref": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Añadir miembro a un equipo",
+        "operationId": "AnadirMiembroAUnEquipo",
+        "parameters": [
+          {
+            "name": "GroupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.id": {
+                  "type": "string",
+                  "description": "@odata.id"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "OAuth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+      "tokenUrl": "https://your.token.url/here",
+      "flow": "accessCode",
+      "scopes": {
+        "https://graph.microsoft.com/Group.Read.All https://graph.microsoft.com/User.Read.All": "https://graph.microsoft.com/Group.Read.All https://graph.microsoft.com/User.Read.All"
+      }
+    }
+  },
+  "security": [
+    {
+      "OAuth": [
+        "https://graph.microsoft.com/Group.Read.All https://graph.microsoft.com/User.Read.All"
+      ]
+    }
+  ],
+  "tags": []
+}
